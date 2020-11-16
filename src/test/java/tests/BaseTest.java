@@ -13,7 +13,7 @@ public class BaseTest {
     @BeforeClass
     public void setUp(){
         webDriver = new Driver();
-        webDriver.getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        webDriver.getDriver().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         Login login = new Login();
         login.loginDvSum(webDriver.getDriver());
     }
