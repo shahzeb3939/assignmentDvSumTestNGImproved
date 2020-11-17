@@ -15,11 +15,8 @@ public class SelectViewFromViewControl {
         driver.findElement(ViewControl.dropdownView).click();
         UpdateViews updatedViews = new UpdateViews(driver);
         for(WebElement item:updatedViews.viewsList){
-            System.out.println(item.getText());
             if(item.getText().equals(viewName)){
-                System.out.println(item.getText()+":before click");
                 item.click();
-                System.out.println(item.getText()+":after click");
             }
         }
     }
