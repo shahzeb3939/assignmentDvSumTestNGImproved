@@ -1,6 +1,7 @@
 package steps.actions;
 
 import org.openqa.selenium.WebDriver;
+import utils.UpdateEditViewColumns;
 
 public class SetViewColumns {
     private WebDriver driver;
@@ -9,5 +10,9 @@ public class SetViewColumns {
     }
 
     public void set() {
+        UpdateEditViewColumns updatedEditViewColumns = new UpdateEditViewColumns(driver);
+        updatedEditViewColumns.allColumnsList.forEach((listItem)->{
+            System.out.println(listItem.getText());
+        });
     }
 }
