@@ -12,7 +12,6 @@ public class UpdateEditViewColumns {
 
     public UpdateEditViewColumns(WebDriver driver){
         this.driver = driver;
-        updateAllColumnsList();
     }
 
     public List<WebElement> availableColumnsList;
@@ -27,7 +26,7 @@ public class UpdateEditViewColumns {
         selectedColumnsList = driver.findElements(EditViewForm.selectedColumns);
     }
 
-    private void updateAllColumnsList(){
+    public void updateAllColumnsList(){
         updateAvailableColumnsList();
         updateSelectedViewColumns();
         allColumnsList = new ArrayList<WebElement>();

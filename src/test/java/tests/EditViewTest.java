@@ -1,15 +1,17 @@
 package tests;
 
-import org.testng.annotations.DataProvider;
+import data.TestData;
 import org.testng.annotations.Test;
 import steps.wrappers.GotoColumnDictionaryPage;
 
-public class EditViewTest extends BaseTest {
+import java.util.List;
 
-    @Test
-    public void editViewTest(){
+public class EditViewTest extends TestData {
+
+    @Test(dataProvider = "editViewTestDataProvider")
+    public void editViewTest(String viewName, String newViewName, List<String> columnsToSelect){
         GotoColumnDictionaryPage gotoColumnDictionaryPage = new GotoColumnDictionaryPage(webDriver.getDriver());
-        gotoColumnDictionaryPage.gotoEditViewForm("testView");
-        gotoColumnDictionaryPage.editView("testViewEdited");
+        gotoColumnDictionaryPage.gotoEditViewForm(viewName);
+        gotoColumnDictionaryPage.editView(newViewName, columnsToSelect);
     }
 }

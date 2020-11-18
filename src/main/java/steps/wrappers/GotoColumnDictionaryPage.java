@@ -9,6 +9,8 @@ import steps.actions.SelectViewFromViewControl;
 import steps.actions.SetViewColumns;
 import steps.actions.SetViewName;
 
+import java.util.List;
+
 public class GotoColumnDictionaryPage {
     private WebDriver driver;
 
@@ -31,10 +33,10 @@ public class GotoColumnDictionaryPage {
         driver.get("https://devqa.dvsum.com/dictionary/column");
     }
 
-    public void editView(String newViewName) {
+    public void editView(String newViewName, List<String> columnsToSelect) {
         SetViewName setViewName = new SetViewName(driver);
         setViewName.set(newViewName);
         SetViewColumns setViewColumns = new SetViewColumns(driver);
-        setViewColumns.set();
+        setViewColumns.set(columnsToSelect);
     }
 }
