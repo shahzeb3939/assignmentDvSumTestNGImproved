@@ -9,9 +9,9 @@ import java.util.List;
 public class EditViewTest extends TestData {
 
     @Test(dataProvider = "editViewTestDataProvider")
-    public void editViewTest(String viewName, String newViewName, List<String> columnsToSelect){
+    public void editViewTest(String viewName, String newViewName, List<String> columnsToSelect, List<String> specifyCriteria){
         GotoColumnDictionaryPage gotoColumnDictionaryPage = new GotoColumnDictionaryPage(webDriver.getDriver());
         gotoColumnDictionaryPage.gotoEditViewForm(viewName);
-        gotoColumnDictionaryPage.editView(newViewName, columnsToSelect);
+        gotoColumnDictionaryPage.editView(newViewName, columnsToSelect, specifyCriteria);
     }
 }

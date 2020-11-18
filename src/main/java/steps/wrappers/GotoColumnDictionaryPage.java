@@ -4,10 +4,7 @@ import components.dashboard.Navbar;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import steps.actions.OpenEditView;
-import steps.actions.SelectViewFromViewControl;
-import steps.actions.SetViewColumns;
-import steps.actions.SetViewName;
+import steps.actions.*;
 
 import java.util.List;
 
@@ -33,10 +30,12 @@ public class GotoColumnDictionaryPage {
         driver.get("https://devqa.dvsum.com/dictionary/column");
     }
 
-    public void editView(String newViewName, List<String> columnsToSelect) {
+    public void editView(String newViewName, List<String> columnsToSelect, List<String> specifyCriteria) {
         SetViewName setViewName = new SetViewName(driver);
         setViewName.set(newViewName);
         SetViewColumns setViewColumns = new SetViewColumns(driver);
         setViewColumns.set(columnsToSelect);
+        SetSpecifyCriteria setSpecifyCriteria = new SetSpecifyCriteria(driver);
+        setSpecifyCriteria.set(specifyCriteria);
     }
 }

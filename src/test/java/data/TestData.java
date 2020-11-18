@@ -10,9 +10,11 @@ public class TestData extends BaseTest {
 
     @DataProvider(name = "editViewTestDataProvider")
     public Object[][] editViewTestData(){
-        Object[][] data = new Object[1][3];
+        Object[][] data = new Object[1][4];
 
         List<String> columnsToSelect = new ArrayList<String>();
+        List<String> specifyCriteria = new ArrayList<String>();
+
         columnsToSelect.add("Primary Key");
         columnsToSelect.add("Density");
         columnsToSelect.add("Count Blanks");
@@ -29,9 +31,14 @@ public class TestData extends BaseTest {
         columnsToSelect.add("Foreign Key");
         columnsToSelect.add("Sensitivity Level");
 
+        specifyCriteria.add("Source");
+        specifyCriteria.add("Includes");
+        specifyCriteria.add("Orcl_dvSum");
+
         data[0][0] = "testView";
         data[0][1] = "testViewEdited";
         data[0][2] = columnsToSelect;
+        data[0][3] = specifyCriteria;
 
         return data;
     }
