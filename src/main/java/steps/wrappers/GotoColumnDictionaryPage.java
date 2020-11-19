@@ -15,10 +15,10 @@ public class GotoColumnDictionaryPage {
         this.driver = driver;
     }
 
-    public void gotoEditViewForm(String view){
+    public void gotoEditViewForm(String viewName){
         gotoPage();
         SelectViewFromViewControl selectViewFromViewControl = new SelectViewFromViewControl(driver);
-        selectViewFromViewControl.selectView(view);
+        selectViewFromViewControl.selectView(viewName);
         OpenEditView openEditView = new OpenEditView(driver);
         openEditView.open();
 
@@ -37,5 +37,7 @@ public class GotoColumnDictionaryPage {
         setViewColumns.set(columnsToSelect);
         SetSpecifyCriteria setSpecifyCriteria = new SetSpecifyCriteria(driver);
         setSpecifyCriteria.set(specifyCriteria);
+        SaveEditedView saveEditedView = new SaveEditedView(driver);
+        saveEditedView.save();
     }
 }

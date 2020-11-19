@@ -15,4 +15,5 @@ public class EditViewForm {
     public static By filterColumnsCriteria = By.id("filterColumns");
     public static By filterOperatorCriteria = By.id("filterOperator");
     public static By selectValuesCriteria = By.xpath("//div[@id='valueList_chosen']//input[contains(@class,'chosen-search-input')]");
+    public static By saveButton = By.xpath("//button[contains(.,'Save')]");
 }

@@ -1,19 +1,15 @@
 package tests;
 
-import data.TestData;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
-import java.util.List;
+public class DemoTest {
 
-public class DemoTest extends TestData {
-
-    @Test(dataProvider = "demoTestDataProvider")
-    public void demoTest(String first, List<String> second, String third){
-        System.out.println(second.get(1));
-        System.out.println(second.get(0));
-        System.out.println(third);
-        System.out.println(first);
+    @Test
+    public void demoTest(){
+        String randomString = "this %s print %d the %f %s string";
+//        System.out.println(randomString);
+//        String formatted = String.format(randomString, "should", "olfool");
+//        System.out.println(formatted);
+        System.out.printf(randomString, "shoddcc", 32, 99.24, "nono");
     }
 }
