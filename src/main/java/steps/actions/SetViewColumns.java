@@ -23,6 +23,8 @@ public class SetViewColumns {
                 action.dragAndDrop(listItem, driver.findElement(EditViewForm.emptySelectedColumn)).build().perform();
             }
         });
+//        DragDrop dragDrop = new DragDrop(driver);
+//        columnsToSelect.forEach(column->dragDrop.dragDropElemTo(columnElementNamed(column),DESTINATION_WEBELEMENT));
     }
 }
 
