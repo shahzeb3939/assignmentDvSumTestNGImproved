@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class ExcelUtils {
 
-    public static void readSheet(String path, String sheetName) throws Exception {
+    public static List<Map<String, String>> readSheet(String path, String sheetName) throws Exception {
         try {
             FileInputStream excelFile = new FileInputStream(path);
             XSSFWorkbook excelWBook = new XSSFWorkbook(excelFile);
@@ -31,7 +31,7 @@ public class ExcelUtils {
                 sheetValues.add(hashMap);
             }
 
-            System.out.println(sheetValues);
+            return sheetValues;
 
 
         } catch (Exception e) {
