@@ -6,32 +6,36 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ExcelUtils {
-    private static XSSFSheet ExcelWSheet;
-    private static XSSFWorkbook ExcelWBook;
-    private static XSSFCell Cell;
-    private static XSSFRow Row;
 
-    public static void setExcelFile(String path, String sheetName) throws Exception {
+    public static void readSheet(String path, String sheetName) throws Exception {
         try {
-            FileInputStream ExcelFile = new FileInputStream(path);
-            ExcelWBook = new XSSFWorkbook(ExcelFile);
-            ExcelWSheet = ExcelWBook.getSheet(sheetName);
+            FileInputStream excelFile = new FileInputStream(path);
+            XSSFWorkbook excelWBook = new XSSFWorkbook(excelFile);
+            XSSFSheet excelWSheet = excelWBook.getSheet(sheetName);
+
+            List<Map<String, String>> sheetValues = new ArrayList<Map<String, String>>();
+
+            XSSFRow keyRow = excelWSheet.getRow(0);
+
+            for(int row=1; row<excelWSheet.getLastRowNum()+1; row++){
+                Map<String, String> hashMap = new HashMap<String, String>();
+                for(int col=0; col<keyRow.getLastCellNum(); col++){
+                    hashMap.put(keyRow.getCell(col).toString(), excelWSheet.getRow(row).getCell(col).toString());
+                }
+                sheetValues.add(hashMap);
+            }
+
+            System.out.println(sheetValues);
+
+
         } catch (Exception e) {
             throw (e);
-        }
-
-    }
-
-    public static String getCellData(int row, int col) throws Exception {
-        try {
-            Row = ExcelWSheet.getRow(row);
-            Cell = Row.getCell(col);
-            String CellData = Cell.getStringCellValue();
-            return CellData;
-        } catch (Exception e) {
-            return "";
         }
     }
 }
