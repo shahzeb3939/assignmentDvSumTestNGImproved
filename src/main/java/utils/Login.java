@@ -1,7 +1,7 @@
 package utils;
 
 import org.openqa.selenium.WebDriver;
-import steps.actions.FillLoginForm;
+import actions.FillLoginForm;
 
 public class Login {
     public void loginDvSum(WebDriver driver) {

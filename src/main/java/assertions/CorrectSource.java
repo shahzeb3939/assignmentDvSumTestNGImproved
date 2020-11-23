@@ -1,4 +1,4 @@
-package steps.assertions;
+package assertions;
 
 import components.columnDictionary.ViewGrid;
 import org.openqa.selenium.*;

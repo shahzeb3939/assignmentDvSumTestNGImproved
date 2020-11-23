@@ -1,4 +1,4 @@
-package steps.actions;
+package steps;
 
 import components.columnDictionary.EditViewForm;
 import org.openqa.selenium.Keys;

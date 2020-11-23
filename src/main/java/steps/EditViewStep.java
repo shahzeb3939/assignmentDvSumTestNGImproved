@@ -1,17 +1,17 @@
-package steps.wrappers;
+package steps;
 
 import components.dashboard.Navbar;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import steps.actions.*;
+import actions.*;
 
 import java.util.List;
 
-public class GotoColumnDictionaryPage {
+public class EditViewStep {
     private WebDriver driver;
 
-    public GotoColumnDictionaryPage(WebDriver driver){
+    public EditViewStep(WebDriver driver){
         this.driver = driver;
     }
 

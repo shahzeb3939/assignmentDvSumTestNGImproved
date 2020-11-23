@@ -2,8 +2,7 @@ package tests;
 
 import data.TestData;
 import org.testng.annotations.Test;
-import steps.assertions.CorrectSource;
-import steps.wrappers.GotoColumnDictionaryPage;
+import steps.EditViewStep;
 
 import java.util.List;
 
@@ -14,9 +13,9 @@ public class EditViewTest extends TestData {
 
     @Test(dataProvider = "editViewTestDataProvider")
     public void editViewTest(String viewName, String newViewName, List<String> columnsToSelect, List<String> specifyCriteria){
-        GotoColumnDictionaryPage gotoColumnDictionaryPage = new GotoColumnDictionaryPage(webDriver.getDriver());
-        gotoColumnDictionaryPage.gotoEditViewForm(viewName);
-        gotoColumnDictionaryPage.editView(newViewName, columnsToSelect, specifyCriteria);
+        EditViewStep editViewStep = new EditViewStep(webDriver.getDriver());
+        editViewStep.gotoEditViewForm(viewName);
+        editViewStep.editView(newViewName, columnsToSelect, specifyCriteria);
 
 //        CorrectSource correctSourceAssert = new CorrectSource(webDriver.getDriver());
 //        assertTrue(correctSourceAssert.correctSource());
