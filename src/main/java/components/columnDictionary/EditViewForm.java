@@ -18,7 +18,7 @@ public class EditViewForm {
     public static By saveButton = By.xpath("//button[contains(.,'Save')]");
 
     public static By getByObjectFromString(String columnName){
-        String byString = "//span[normalize-space()='%s']";
+        String byString = "//ul[@id='avaiableColumns']//div[normalize-space()='%s']";
         String formattedByString = String.format(byString, columnName);
         By viewNameByObject = By.xpath(formattedByString);
         return viewNameByObject;

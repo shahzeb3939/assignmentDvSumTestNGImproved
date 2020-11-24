@@ -1,14 +1,16 @@
 package steps;
 
 import components.columnDictionary.EditViewForm;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.StringToList;
-import utils.UpdateEditViewColumns;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class SetViewColumns {
     private WebDriver driver;
@@ -19,52 +21,15 @@ public class SetViewColumns {
     public void set(String columnsToSelectString) {
         List<String> columnsToSelect = StringToList.convertToList(columnsToSelectString);
         driver.findElement(EditViewForm.deSelectAllColumnsButton).click();
+
+//        WebDriverWait wait = new WebDriverWait(driver, 5);
+////        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//ul[@id='selectedColumns'][count(li)=0]"))));
+//        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("//ul[@id='selectedColumns'][count(li)=0]"))));
+
         Actions action = new Actions(driver);
         columnsToSelect.forEach(columnName -> {
             action.dragAndDrop(driver.findElement(EditViewForm.getByObjectFromString(columnName)), driver.findElement(EditViewForm.emptySelectedColumn)).build().perform();
         });
-
-
-
-
-
-
-//        UpdateEditViewColumns updatedEditViewColumns = new UpdateEditViewColumns(driver);
-//        driver.findElement(EditViewForm.deSelectAllColumnsButton).click();
-//        updatedEditViewColumns.updateAllColumnsList();
-//        Actions action = new Actions(driver);
-//        updatedEditViewColumns.allColumnsList.forEach((listItem)->{
-//            if(columnsToSelect.contains(listItem.getText())){
-//                action.dragAndDrop(listItem, driver.findElement(EditViewForm.emptySelectedColumn)).build().perform();
-//            }
-//        });
-
-//        DragDrop dragDrop = new DragDrop(driver);
-//        columnsToSelect.forEach(column->dragDrop.dragDropElemTo(columnElementNamed(column),DESTINATION_WEBELEMENT));
     }
 }
 
-
-
-//        updatedEditViewColumns.allColumnsList.forEach((listItem)->{
-//        System.out.println(listItem.getText());
-//        });
-
-//        System.out.println(i);
-//        System.out.println(updatedEditViewColumns.allColumnsList.get(i).getText());
-
-//        action.clickAndHold(driver.findElement(EditViewForm.availableColumns));
-//        action.dragAndDrop(driver.findElement(EditViewForm.availableColumns), driver.findElement(EditViewForm.selectedColumns));
-
-//        for(int i = 0; i < noOfColumns; i++){
-//        action.dragAndDrop(driver.findElement(EditViewForm.availableColumns), driver.findElement(EditViewForm.selectedColumns)).build().perform();
-//        }
-
-
-//                UpdateEditViewColumns updatedEditViewColumns = new UpdateEditViewColumns(driver);
-//                driver.findElement(EditViewForm.deSelectAllColumnsButton).click();
-//                updatedEditViewColumns.updateAllColumnsList();
-//                Actions action = new Actions(driver);
-//                updatedEditViewColumns.allColumnsList.forEach((listItem)->{
-//                System.out.println(listItem.getText());
-//                });

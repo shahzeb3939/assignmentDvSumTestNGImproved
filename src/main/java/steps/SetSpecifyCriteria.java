@@ -17,18 +17,17 @@ public class SetSpecifyCriteria {
         this.driver = driver;
     }
 
-    public void set(String specifyCriteriaString) {
-        List<String> specifyCriteria = StringToList.convertToList(specifyCriteriaString);
+    public void set(String columnToFilter, String filterName, String sourceToFilter) {
 
-        if(specifyCriteria.get(0).equals("Source")){
+        if(columnToFilter.equals("Source")){
             Select filterColumnsDropdown = new Select(driver.findElement(EditViewForm.filterColumnsCriteria));
             filterColumnsDropdown.selectByVisibleText("Source");
         }
-        if(specifyCriteria.get(1).equals("Includes")){
+        if(filterName.equals("Includes")){
             Select filterOperatorDropdown = new Select(driver.findElement(EditViewForm.filterOperatorCriteria));
             filterOperatorDropdown.selectByVisibleText("Includes");
         }
-        if(specifyCriteria.get(2).equals("Orcl_dvSum")){
+        if(sourceToFilter.equals("Orcl_dvSum")){
             driver.findElement(EditViewForm.selectValuesCriteria).sendKeys(Keys.BACK_SPACE);
             driver.findElement(EditViewForm.selectValuesCriteria).sendKeys("o");
             driver.findElement(EditViewForm.selectValuesCriteria).sendKeys(Keys.ENTER);
