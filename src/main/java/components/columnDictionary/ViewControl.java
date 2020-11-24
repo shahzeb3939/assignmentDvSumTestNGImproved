@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 public class ViewControl {
     public static By dropdownView = By.id("selectedView");
 
-    public static By viewByObject(String viewName){
+    public static By getByObjectFromString(String viewName){
         String byString = "//li[contains(@class,'userView')][normalize-space()='%s']";
         String formattedByString = String.format(byString, viewName);
         By viewNameByObject = By.xpath(formattedByString);

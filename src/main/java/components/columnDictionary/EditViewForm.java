@@ -16,4 +16,11 @@ public class EditViewForm {
     public static By filterOperatorCriteria = By.id("filterOperator");
     public static By selectValuesCriteria = By.xpath("//div[@id='valueList_chosen']//input[contains(@class,'chosen-search-input')]");
     public static By saveButton = By.xpath("//button[contains(.,'Save')]");
+
+    public static By getByObjectFromString(String columnName){
+        String byString = "//span[normalize-space()='%s']";
+        String formattedByString = String.format(byString, columnName);
+        By viewNameByObject = By.xpath(formattedByString);
+        return viewNameByObject;
+    }
 }

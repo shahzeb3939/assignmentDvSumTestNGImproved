@@ -18,16 +18,26 @@ public class SetViewColumns {
 
     public void set(String columnsToSelectString) {
         List<String> columnsToSelect = StringToList.convertToList(columnsToSelectString);
-
-        UpdateEditViewColumns updatedEditViewColumns = new UpdateEditViewColumns(driver);
         driver.findElement(EditViewForm.deSelectAllColumnsButton).click();
-        updatedEditViewColumns.updateAllColumnsList();
         Actions action = new Actions(driver);
-        updatedEditViewColumns.allColumnsList.forEach((listItem)->{
-            if(columnsToSelect.contains(listItem.getText())){
-                action.dragAndDrop(listItem, driver.findElement(EditViewForm.emptySelectedColumn)).build().perform();
-            }
+        columnsToSelect.forEach(columnName -> {
+            action.dragAndDrop(driver.findElement(EditViewForm.getByObjectFromString(columnName)), driver.findElement(EditViewForm.emptySelectedColumn)).build().perform();
         });
+
+
+
+
+
+
+//        UpdateEditViewColumns updatedEditViewColumns = new UpdateEditViewColumns(driver);
+//        driver.findElement(EditViewForm.deSelectAllColumnsButton).click();
+//        updatedEditViewColumns.updateAllColumnsList();
+//        Actions action = new Actions(driver);
+//        updatedEditViewColumns.allColumnsList.forEach((listItem)->{
+//            if(columnsToSelect.contains(listItem.getText())){
+//                action.dragAndDrop(listItem, driver.findElement(EditViewForm.emptySelectedColumn)).build().perform();
+//            }
+//        });
 
 //        DragDrop dragDrop = new DragDrop(driver);
 //        columnsToSelect.forEach(column->dragDrop.dragDropElemTo(columnElementNamed(column),DESTINATION_WEBELEMENT));
