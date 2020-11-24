@@ -4,7 +4,10 @@ import components.columnDictionary.EditViewForm;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
+import utils.StringToList;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SetSpecifyCriteria {
@@ -14,7 +17,9 @@ public class SetSpecifyCriteria {
         this.driver = driver;
     }
 
-    public void set(List<String> specifyCriteria) {
+    public void set(String specifyCriteriaString) {
+        List<String> specifyCriteria = StringToList.convertToList(specifyCriteriaString);
+
         if(specifyCriteria.get(0).equals("Source")){
             Select filterColumnsDropdown = new Select(driver.findElement(EditViewForm.filterColumnsCriteria));
             filterColumnsDropdown.selectByVisibleText("Source");

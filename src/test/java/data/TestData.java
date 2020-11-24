@@ -6,7 +6,7 @@ import tests.BaseTest;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestData extends BaseTest {
+public class TestData {
 
     @DataProvider(name = "editViewTestDataProvider")
     public Object[][] editViewTestData(){

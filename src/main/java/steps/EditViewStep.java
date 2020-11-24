@@ -30,7 +30,7 @@ public class EditViewStep {
         driver.get("https://devqa.dvsum.com/dictionary/column");
     }
 
-    public void editView(String newViewName, List<String> columnsToSelect, List<String> specifyCriteria) {
+    public void editView(String newViewName, String columnsToSelect, String specifyCriteria) {
         SetViewName setViewName = new SetViewName(driver);
         setViewName.set(newViewName);
         SetViewColumns setViewColumns = new SetViewColumns(driver);

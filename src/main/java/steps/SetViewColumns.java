@@ -3,8 +3,11 @@ package steps;
 import components.columnDictionary.EditViewForm;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
+import utils.StringToList;
 import utils.UpdateEditViewColumns;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SetViewColumns {
@@ -13,7 +16,9 @@ public class SetViewColumns {
         this.driver = driver;
     }
 
-    public void set(List<String> columnsToSelect) {
+    public void set(String columnsToSelectString) {
+        List<String> columnsToSelect = StringToList.convertToList(columnsToSelectString);
+
         UpdateEditViewColumns updatedEditViewColumns = new UpdateEditViewColumns(driver);
         driver.findElement(EditViewForm.deSelectAllColumnsButton).click();
         updatedEditViewColumns.updateAllColumnsList();
@@ -23,6 +28,7 @@ public class SetViewColumns {
                 action.dragAndDrop(listItem, driver.findElement(EditViewForm.emptySelectedColumn)).build().perform();
             }
         });
+
 //        DragDrop dragDrop = new DragDrop(driver);
 //        columnsToSelect.forEach(column->dragDrop.dragDropElemTo(columnElementNamed(column),DESTINATION_WEBELEMENT));
     }

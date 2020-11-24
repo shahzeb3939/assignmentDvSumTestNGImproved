@@ -10,7 +10,8 @@ public class DataProviderClass {
 
     @DataProvider(name = "excelSheetData")
     public static Iterator<Object[]> getDataFromSheet(Method method) throws Exception {
-        List<Map<String, String>> sheetValues =  ExcelUtils.readSheet("C:/Users/Emumba/Desktop/randomData.xlsx", method.getName());
+        String testMethodName = method.getName();
+        List<Map<String, String>> sheetValues =  ExcelUtils.readSheet("resources/excelTestData.xlsx", testMethodName);
         Collection<Object[]> data = new ArrayList<Object[]>();
         sheetValues.forEach(item -> data.add(new Object[]{item}));
         return data.iterator();
