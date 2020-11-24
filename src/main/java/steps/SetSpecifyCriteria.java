@@ -4,11 +4,7 @@ import components.columnDictionary.EditViewForm;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
-import utils.StringToList;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class SetSpecifyCriteria {
     private WebDriver driver;

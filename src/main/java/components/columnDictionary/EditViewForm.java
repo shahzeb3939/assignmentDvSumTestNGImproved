@@ -1,9 +1,6 @@
 package components.columnDictionary;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
-import java.util.List;
 
 public class EditViewForm {
     public static By viewNameField = By.id("viewName");

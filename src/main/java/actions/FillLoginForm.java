@@ -1,6 +1,7 @@
 package actions;
 
 import components.dvSumLogin.DvSumLoginForm;
+import constants.Constants;
 import org.openqa.selenium.WebDriver;
 
 public class FillLoginForm {
@@ -10,8 +11,8 @@ public class FillLoginForm {
         this.driver = driver;
     }
     public void enterCredentials() {
-        driver.findElement(DvSumLoginForm.emailField).sendKeys("testautomation@dvsum.com");
-        driver.findElement(DvSumLoginForm.passwordField).sendKeys("1@Qwerty");
+        driver.findElement(DvSumLoginForm.emailField).sendKeys(Constants.dvSumLoginUsername);
+        driver.findElement(DvSumLoginForm.passwordField).sendKeys(Constants.dvSumLoginPassword);
     }
 
     public void login() {
