@@ -13,11 +13,15 @@ public class SelectViewFromViewControl {
 
     public void selectView(String viewName) {
         driver.findElement(ViewControl.dropdownView).click();
-        UpdateViews updatedViews = new UpdateViews(driver);
-        for(WebElement item:updatedViews.viewsList){
-            if(item.getText().equals(viewName)){
-                item.click();
-            }
-        }
+        driver.findElement(ViewControl.viewByObject(viewName)).click();
+
+//        driver.findElement().click();
+
+//        UpdateViews updatedViews = new UpdateViews(driver);
+//        for(WebElement item:updatedViews.viewsList){
+//            if(item.getText().equals(viewName)){
+//                item.click();
+//            }
+//        }
     }
 }
