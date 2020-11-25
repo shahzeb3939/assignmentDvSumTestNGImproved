@@ -1,4 +1,4 @@
-package actions;
+package steps;
 
 import components.columnDictionary.ViewSetting;
 import org.openqa.selenium.WebDriver;

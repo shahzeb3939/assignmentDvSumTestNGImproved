@@ -15,18 +15,19 @@ public class SetSpecifyCriteria {
 
     public void set(String columnToFilter, String filterName, String sourceToFilter) {
 
-        if(columnToFilter.equals("Source")){
-            Select filterColumnsDropdown = new Select(driver.findElement(EditViewForm.filterColumnsCriteria));
-            filterColumnsDropdown.selectByVisibleText("Source");
+        Select filterColumnsDropdown = new Select(driver.findElement(EditViewForm.filterColumnsCriteria));
+        filterColumnsDropdown.selectByVisibleText(columnToFilter);
+
+        Select filterOperatorDropdown = new Select(driver.findElement(EditViewForm.filterOperatorCriteria));
+        filterOperatorDropdown.selectByVisibleText(filterName);
+
+        Integer searchChoiceSelected = driver.findElements(EditViewForm.searchChoice).size();
+        for(int i=0; i<searchChoiceSelected; i++){
+            driver.findElement(EditViewForm.searchChoiceClose).click();
         }
-        if(filterName.equals("Includes")){
-            Select filterOperatorDropdown = new Select(driver.findElement(EditViewForm.filterOperatorCriteria));
-            filterOperatorDropdown.selectByVisibleText("Includes");
-        }
-        if(sourceToFilter.equals("Orcl_dvSum")){
-            driver.findElement(EditViewForm.selectValuesCriteria).sendKeys(Keys.BACK_SPACE);
-            driver.findElement(EditViewForm.selectValuesCriteria).sendKeys("o");
-            driver.findElement(EditViewForm.selectValuesCriteria).sendKeys(Keys.ENTER);
-        }
+
+        driver.findElement(EditViewForm.selectValuesCriteria).click();
+        driver.findElement(EditViewForm.selectValuesCriteria).sendKeys(sourceToFilter);
+        driver.findElement(EditViewForm.selectValuesCriteria).sendKeys(Keys.ENTER);
     }
 }

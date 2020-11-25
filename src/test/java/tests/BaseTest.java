@@ -3,7 +3,7 @@ package tests;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import utils.Driver;
-import utils.Login;
+import steps.Login;
 
 import java.util.concurrent.TimeUnit;
 

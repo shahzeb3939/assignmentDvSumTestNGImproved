@@ -1,7 +1,6 @@
 package steps;
 
 import org.openqa.selenium.WebDriver;
-import actions.*;
 
 public class EditViewStep {
     private WebDriver driver;
